@@ -3,14 +3,14 @@
 # caches its inverse upon first computation.
 # Example:
 # m <- makeCacheMatrix(matrix(rnorm(4.9e+05), nrow=700, ncol=700))
-# i <- cacheSolve(m) # Computes matrix inverse and cache it
-# j <- cacheSolve(m) # Fetches cached matrix inversed
+# i <- cacheSolve(m) # Computes inverse of square matrix and caches it
+# j <- cacheSolve(m) # Fetches cached inverse of matrix
 # =============================================================================
 
 
-# Constructs a cachable matrix.
+# Constructs a cacheable matrix.
 # Arg:
-#   x: Matrix object, default to empty matrix if no argument.
+#   x: Square matrix, defaults to empty matrix if no argument.
 # Return:
 #   Cacheable matrix
 makeCacheMatrix <- function(x = matrix()) {
