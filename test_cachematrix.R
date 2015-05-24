@@ -29,16 +29,18 @@ message("Test usage of set")
 m <- matrix(rnorm(4.9e+05), nrow=700, ncol=700)
 cm <- makeCacheMatrix(m)
 i <- cacheSolve(cm) # Computes inverse
-i <- cacheSolve(cm) # Gets inverse from cache
+j <- cacheSolve(cm) # Gets inverse from cache
+stopifnot(all(i == j))
 
 # Reset internal matrix of cacheable matrix (exercise 'set' function)
 cm$set(matrix(rnorm(4.9e+05), nrow=700, ncol=700))
 i <- cacheSolve(cm) # Computes inverse
-i <- cacheSolve(cm) # Gets inverse from cache
+j <- cacheSolve(cm) # Gets inverse from cache
+stopifnot(all(i == j))
 
 # =============================================================================
 message("Validate correctness")
-# Fails if caching of regular matrix different than cached matrix)
+# Fails if caching of regular matrix different than cached matrix
 m <- matrix(rnorm(4.9e+05), nrow=700, ncol=700)
 cm <- makeCacheMatrix(m)
-stopifnot(all(head(solve(m)) == head(cacheSolve(cm))))
+stopifnot(all(solve(m) == cacheSolve(cm)))
