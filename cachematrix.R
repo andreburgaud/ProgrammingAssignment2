@@ -1,9 +1,10 @@
 # =============================================================================
-# Implementation and usage of a cacheable matrix. Cachable matrix
+# Implementation and usage of a cacheable matrix. Cacheable matrix
 # caches its inverse upon first computation.
 # Example:
 # m <- makeCacheMatrix(matrix(rnorm(4.9e+05), nrow=700, ncol=700))
-# i <- cacheSolve(m)
+# i <- cacheSolve(m) # Computes matrix inverse and cache it
+# j <- cacheSolve(m) # Fetches cached matrix inversed
 # =============================================================================
 
 

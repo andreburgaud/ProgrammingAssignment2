@@ -5,6 +5,7 @@ source("cachematrix.R")
 
 # =============================================================================
 message("Data preparation")
+set.seed(1)
 l = list()
 n = 5
 for(i in 1:n) {
